@@ -2,9 +2,9 @@
 The devpi server has a default, read-only, index name /root/pypi. When a package is not found in the index hierachy, it will will query pypi in a attempt to locate it
 **/root/pypi** is default, **read-only**, special index which **acts a PyPI cache**. ***No package can be uploaded to that index***
 
-## User Indexes: fp
-- ***/fp/prod***: **production index** <- derives **from bases: ["/fp/prod"]**
-- ***/fp/dev***: **development index** <- derives **from production index bases: []**
+## User Indexes: user
+- ***/user/prod***: **production index** <- derives **from bases: ["/user/prod"]**
+- ***/user/dev***: **development index** <- derives **from production index bases: []**
 
 A index is [***volatile***](https://devpi.net/docs/devpi/devpi/stable/+doc/userman/devpi_concepts.html#non-volatile-indexes) if **packages can be overridden with the same version** (which would make sense for a development index). Otherwise, attempting to upload 2 a package with the same version would result in an error
 A non volatile index should not use a volatile index as one of its bases.
@@ -20,7 +20,7 @@ A non volatile index is an index that can not be modified in a destructive manne
 
 ***Non volatile indexes should be used as common package repositories between users, either for staging or production***
 ```shell script
-devpi getjson $DEVPI/fp
+devpi getjson $DEVPI/user
 ```
 ```json
 {
@@ -56,7 +56,7 @@ curl -s $DEVPI
 curl -s $DEVPI/root/pypi/+simple/
 curl -s $DEVPI/root/pypi/+changelog
 
-devpi getjson $DEVPI/fp
+devpi getjson $DEVPI/user
 
 devpi use $DEVPI
 devpi login {{ usuario }} {{ ansible_sudo_pass }}
@@ -66,23 +66,23 @@ devpi use {{ usuario }}/dev
 ## [Uploading, testing and pushing](https://devpi.net/docs/devpi/devpi/stable/+d/userman/devpi_packages.html)
 ***/root/pypi is a special cache to https://pypi.org***
 
-Add root/pypi to the bases of fp/prod
+Add root/pypi to the bases of user/prod
 ````shell script
 devpi use $DEVPI
-devpi user -m root password=1Zaragoza$.
-devpi login root --password=1Zaragoza$.
+devpi user -m root password=...
+devpi login root --password=...
 devpi index -l
-devpi user -c fp password=1Zaragoza$.
+devpi user -c user password=...
 devpi logout
-devpi login fp --password=1Zaragoza$.
+devpi login user --password=...
 devpi index -l
 devpi use $DEVPI
 devpi use -l
 
-devpi index -c fp/prod bases=root/pypi volatile=False
-devpi index -c fp/dev bases=fp/prod volatile=True
+devpi index -c user/prod bases=root/pypi volatile=False
+devpi index -c user/dev bases=user/prod volatile=True
 devpi use -l
-devpi use fp/dev
+devpi use user/dev
 devpi install pytest
 
 ````
@@ -99,12 +99,12 @@ twine upload -r devpi-dev dist/*
 ```
 ## RESUMEN
 ````shell script
-devpi login fp --password=1Zaragoza$.
+devpi login user --password=...
 python3 setup.py sdist bdist_wheel
 twine upload -r dev dist/*
 pip3 install example_devpi  # SALE ERROR
 devpi test example_devpi
 devpi install example_devpi
-devpi push example_devpi==0.0.1 fp/prod
+devpi push example_devpi==0.0.1 user/prod
 devpi list example_devpi
 ````
