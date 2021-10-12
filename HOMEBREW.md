@@ -302,6 +302,9 @@ Dir["#{buildpath}/bin/*"].each do |file|
 end
 ````
 
+## [Whalebrew](https://github.com/whalebrew/whalebrew)
+* [docker-pywatchman](https://github.com/SmileyChris/docker-pywatchman) - Python watchman Docker Image
+* 
 ## See also
 
 ### GitHub Actions and Apps
@@ -314,6 +317,7 @@ end
   executables directly to Homebrew via GitHub Actions (creates the formula).
   * [Homebrew bump formula](https://github.com/marketplace/actions/homebrew-bump-formula) - Homebrew bump formula 
   GitHub Action (updates the formula).
+
 
 ### Taps
   * [github.com/egilsster/git-releaser tap](https://github.com/egilsster/homebrew-git-releaser) 
