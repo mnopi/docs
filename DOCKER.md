@@ -64,3 +64,27 @@ curl localhost:8080
 ````bash
 watch -n 0 "docker logs mycontainer"
 ````
+
+## [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/)
+
+````bash
+echo 'WARMACHINEROX' > mysecret.txt
+````
+
+
+````Dockerfile
+# syntax=docker/dockerfile:1
+
+FROM alpine
+
+# shows secret from default secret location:
+RUN --mount=type=secret,id=mysecret cat /run/secrets/mysecret
+
+# shows secret from custom secret location:
+RUN --mount=type=secret,id=mysecret,dst=/foobar cat /foobar
+````
+
+
+````bash
+docker build --no-cache --progress=plain --secret id=mysecret,src=mysecret.txt .
+````
