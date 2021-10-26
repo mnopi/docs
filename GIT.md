@@ -8,7 +8,7 @@ bit sync origin main  # git pull -r; git push; git pull -r origin master; git pu
 bit switch example-branch
 ````
 
-### [git.io url](https://git.io/)
+### [git.io url](https://gist.github.com/dikiaap/01f5e2ba3c738012aef0a8f524a6e207)
 ```shell
 FILE="rc"
 curl https://git.io/ -i -F "url=https://raw.githubusercontent.com/j5pux/${FILE}/main/${FILE}" -F "code=_${FILE}"
