@@ -5,6 +5,12 @@
 ### [watchman](https://facebook.github.io/watchman/)
 Watch files and records, or triggers actions, when they change.
 
+### [watchexec](https://github.com/watchexec/watchexec)
+Execute commands in response to file modifications.
+
+#### [cargo-watch](https://github.com/watchexec/cargo-watch)
+Watches over your project's source for changes, and runs Cargo commands when they occur
+
 ### [wfh](https://github.com/kzys/wfh)
 Continuously watches your local directories and rsync them against a remote host.
 
@@ -14,8 +20,6 @@ Runs a command, right after you save a file.
 ### [croc](https://github.com/schollz/croc)
 Easily and securely send things from one computer to another.
 
-### [watchexec](https://github.com/watchexec/watchexec)
-Execute commands in response to file modifications.
 
 ### [modd](https://github.com/cortesi/modd)
 A flexible developer tool that runs processes and responds to filesystem changes.
