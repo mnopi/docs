@@ -1,5 +1,36 @@
 # GIT
 
+## submodules
+
+### Add 
+````bash
+git submodule add https://github.com/bats-core/bats-core.git tests/lib/bats
+````
+### Cloning 
+````bash
+git clone --recursive https://github.com/bats-core/bats-core.git
+````
+
+### Pull 
+```bash
+git pull --recurse-submodules
+```
+
+### After clone 
+```bash
+git submodule init && git submodule update
+````
+
+## stash & pull when files in repository not in remote
+```bash
+cd /Applications/PyCharm.app/Contents/bin
+git init
+git add .
+git stash
+git remote add origin git@github.com:j5pu/pycharm.git
+git pull --recurse-submodules
+```
+
 ### [bit](https://github.com/chriswalz/bit)
 ````bash
 bit save [commit message]  # git commit -am "commit message"
