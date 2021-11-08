@@ -2,28 +2,39 @@
 
 ## submodules
 
-### Add 
+### Add
+
 ````bash
 git submodule add https://github.com/bats-core/bats-core.git tests/lib/bats
+git commit -m "module"
+git push
 git submodule sync
 ````
 
-### Cloning 
+### Add to a branch 
+```bash
+f() ( git submodule --quiet add -b "${2:-main}" $1 branches/$(basename $1 .git)-$2 )
+```
+### Cloning
+
 ````bash
 git clone --recursive https://github.com/bats-core/bats-core.git
 ````
 
-### Pull 
+### Pull
+
 ```bash
 git pull --recurse-submodules
 ```
 
-### After clone 
+### After clone
+
 ```bash
 git submodule init && git submodule update
 ````
 
-### Delete 
+### Delete
+
 ```shell
 vi .gitmodules
 git config --unset submodule.textmate/git-tmbundle.url
@@ -35,6 +46,7 @@ git all
 ```
 
 ## stash & pull when files in repository not in remote
+
 ```bash
 cd /Applications/PyCharm.app/Contents/bin
 git init
@@ -45,6 +57,7 @@ git pull --recurse-submodules
 ```
 
 ### [bit](https://github.com/chriswalz/bit)
+
 ````bash
 bit save [commit message]  # git commit -am "commit message"
 bit sync  # git pull -r; git push
@@ -53,6 +66,7 @@ bit switch example-branch
 ````
 
 ### [git.io url](https://gist.github.com/dikiaap/01f5e2ba3c738012aef0a8f524a6e207)
+
 ```shell
 FILE="rc"
 curl https://git.io/ -i -F "url=https://raw.githubusercontent.com/j5pux/${FILE}/main/${FILE}" -F "code=_${FILE}"
@@ -78,7 +92,7 @@ git extras --help
 * [alias](https://github.com/tj/git-extras/blob/master/Commands.md#git-alias)
 * [info](https://github.com/tj/git-extras/blob/master/Commands.md#git-info)
 * [cp](https://github.com/tj/git-extras/blob/master/Commands.md#git-cp)
-* [create-branch](https://github.com/tj/git-extras/blob/master/Commands.md#git-create-branch) 
+* [create-branch](https://github.com/tj/git-extras/blob/master/Commands.md#git-create-branch)
   `git create-branch -r origin development`
 * [delete-branch](https://github.com/tj/git-extras/blob/master/Commands.md#git-delete-branch)
 * [delete-submodule](https://github.com/tj/git-extras/blob/master/Commands.md#git-delete-submodule)
@@ -105,6 +119,7 @@ git extras --help
 ## [pre-commit](https://pre-commit.com/)
 
 ### setup
+
 ````bash
 grep -q "pre-commit" $(DIR).git/hooks/pre-commit 2>/dev/null \
 || [[ -f $(DIR).pre-commit-config.yaml ]] \
@@ -113,6 +128,7 @@ grep -q "pre-commit" $(DIR).git/hooks/pre-commit 2>/dev/null \
 ````
 
 ### [Templates & Hooks](https://git-scm.com/docs/githooks)
+
 ````bash
 git config --global init.templateDir 
 for i in pre-commit pre-merge-commit pre-push prepare-commit-msg commit-msg post-commit post-checkout post-merge; do
@@ -120,8 +136,10 @@ for i in pre-commit pre-merge-commit pre-push prepare-commit-msg commit-msg post
 done
 ````
 
-### Develop 
+### Develop
+
 [pip-tools](https://github.com/jazzband/pip-tools/blob/master/.pre-commit-hooks.yaml)
+
 ````bash
 pre-commit sample-config
 pre-commit install --install-hooks 
@@ -129,6 +147,7 @@ pre-commit autoupdate
 ````
 
 ## Commands
+
 ````bash
 git rm --cached -r -f .  # remove all files from git index without removing files.
 git ls-remote --heads origin
@@ -148,7 +167,9 @@ origin/main
 '
 
 ````
+
 ### [Upstream branch](https://devconnected.com/how-to-set-upstream-branch-on-git/)
+
 Branch tracked on remote repository by `local remote branch/remote tracking branch`.
 When cloning or creating new feature branches, you will have to set upstream branches in order to work properly.
 `local branch` -> `local remote branch/remote tracking branch` -> `remote repository tracked/upstream branch`.
@@ -164,6 +185,7 @@ git branch --track main origin/main  # seems to be the same if local main is not
 * `git merge origin/master` `git rebase origin/master`
 
 ### [Rebase vs. merge](https://sdqweb.ipd.kit.edu/wiki/Git_pull_--rebase_vs._--merge)
+
 ````bash
 git pull --rebase  # local changes are reapplied on top of the remote changes.
 git pull --rebase origin master  # similar to 'git fetch & git rebase'
@@ -181,21 +203,23 @@ git fetch --all  # is now in local remotes but there is not a local which track 
 ## See also
 
 ### Actions - Examples
-  * [critic.sh - Bash Test](https://github.com/Checksum/critic.sh/blob/master/.github/workflows/main.yml)
+
+* [critic.sh - Bash Test](https://github.com/Checksum/critic.sh/blob/master/.github/workflows/main.yml)
 
 ### GitHub
-  * [gh pr](https://cli.github.com/manual/gh_pr_create) - gh pr create.
-  * [Authentication in a workflow](https://docs.github.com/en/actions/reference/authentication-in-a-workflow)
-  * [Encrypted secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
-  * [Introduction to GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions)
-  * [Manually running a workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow) 
+
+* [gh pr](https://cli.github.com/manual/gh_pr_create) - gh pr create.
+* [Authentication in a workflow](https://docs.github.com/en/actions/reference/authentication-in-a-workflow)
+* [Encrypted secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
+* [Introduction to GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions)
+* [Manually running a workflow](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow)
 
 ### How-To
-  * [create-custom-github-action](https://www.philschmid.de/create-custom-github-action-in-4-steps)
-  * [Automate your build & release](https://faun.pub/automate-your-build-release-with-github-actions-367c0febf5fd)
-  * [Automating PyPI releases](https://www.caktusgroup.com/blog/2021/02/11/automating-pypi-releases/)
-  * [Publishing PyPI package distribution](https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/)
-  * [Setting up python-semantic-release](https://python-semantic-release.readthedocs.io/en/latest/automatic-releases/github-actions.html)
-  * [PyPI publish GitHub Action](https://github.com/pypa/gh-action-pypi-publish)
-  * [Automate your build & release](https://faun.pub/automate-your-build-release-with-github-actions-367c0febf5fd)
 
+* [create-custom-github-action](https://www.philschmid.de/create-custom-github-action-in-4-steps)
+* [Automate your build & release](https://faun.pub/automate-your-build-release-with-github-actions-367c0febf5fd)
+* [Automating PyPI releases](https://www.caktusgroup.com/blog/2021/02/11/automating-pypi-releases/)
+* [Publishing PyPI package distribution](https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/)
+* [Setting up python-semantic-release](https://python-semantic-release.readthedocs.io/en/latest/automatic-releases/github-actions.html)
+* [PyPI publish GitHub Action](https://github.com/pypa/gh-action-pypi-publish)
+* [Automate your build & release](https://faun.pub/automate-your-build-release-with-github-actions-367c0febf5fd)
