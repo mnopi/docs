@@ -69,6 +69,9 @@ A tool that bootstraps your dotfiles.
 
 ## TASKS & BUILD
 
+### [nixos](https://nixos.org/)
+Reproducible builds and deployments.
+
 ### [gitversion](https://gitversion.net/)
 
 From git log to SemVer in no time.
@@ -184,7 +187,7 @@ Quickly clone all of an orgs, or users repos into a single directory.
 
 ### [mr](https://myrepos.branchable.com/)
 
-Multiple Repository management tool.
+Multiple Repository management tool [repository](git://myrepos.branchable.com/).
 
 ## Commands
 
@@ -375,6 +378,39 @@ Automagically shell alias completion.
 ### [emoji-cli](https://github.com/wfxr/emoji-cli.git)
 
 Emoji CLI.
+
+### [topgrade](https://github.com/r-darwish/topgrade.git)
+Upgrade everything
+
+### [github2mr](https://github.com/skx/github2mr.git)
+Export all your github repositories to a form suitable for 'myrepos' to work with.
+
+### [git-plus](https://github.com/tkrajina/git-plus.git)
+Git utilities (semver, run one command in multiple repos, etc.)
+
+### [gitbatch](https://github.com/isacikgoz/gitbatch.git)
+Manage your git repositories in one place.
+
+### [gita](https://github.com/nosarthur/gita)
+Manage many git repos with sanity.
+
+### [repo](https://android.googlesource.com/tools/repo)
+Manage many Git repositories, does the uploads to revision control systems, and automates parts of the development 
+workflow. Repo is not meant to replace Git, only to make it easier to work with Git. The repo command is an executable 
+Python script that you can put anywhere in your path.
+```bash
+mkdir -p ~/.bin
+PATH="${HOME}/.bin:${PATH}"
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+chmod a+rx ~/.bin/repo
+
+```
+
+### [bashhub](https://bashhub.com/)
+Bash history in the cloud. Indexed and searchable.
+
+### [git-repo-updater](https://github.com/earwig/git-repo-updater.git)
+A console script that allows you to easily update multiple git repositories at once.
 
 ### [m-cli](https://github.com/rgcr/m-cli)
 
