@@ -5,7 +5,9 @@
 ### Add 
 ````bash
 git submodule add https://github.com/bats-core/bats-core.git tests/lib/bats
+git submodule sync
 ````
+
 ### Cloning 
 ````bash
 git clone --recursive https://github.com/bats-core/bats-core.git
@@ -20,6 +22,17 @@ git pull --recurse-submodules
 ```bash
 git submodule init && git submodule update
 ````
+
+### Delete 
+```shell
+vi .gitmodules
+git config --unset submodule.textmate/git-tmbundle.url
+git config --unset submodule.textmate/git-tmbundle.active
+git rm --cached path_to_submodule
+rm -r path_to_submodule
+git submodule sync
+git all
+```
 
 ## stash & pull when files in repository not in remote
 ```bash

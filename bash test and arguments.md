@@ -104,7 +104,7 @@ hyperfine --warmup 3 ls 2>/dev/null
 ### [Tutorial](https://github.com/shellspec/shellspec#tutorial)
 Write hello function:
 ````bash
-at<<HERE >lib/hello.sh
+cat<<HERE >lib/hello.sh
 hello() {
   echo "Hello ${1}!"
 }
