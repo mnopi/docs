@@ -88,3 +88,10 @@ RUN --mount=type=secret,id=mysecret,dst=/foobar cat /foobar
 ````bash
 docker build --no-cache --progress=plain --secret id=mysecret,src=mysecret.txt .
 ````
+
+````bash
+docker run -d --name buildkitd --privileged moby/buildkit:latest
+export BUILDKIT_HOST=docker-container://buildkitd
+alias buildctl="docker run --name buildkitd"
+buildctl build --help
+````

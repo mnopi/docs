@@ -4,6 +4,10 @@
 * **`type -a -p rm`** Zsh (prints the type also)
 * **`make`** Alpine (no), Ubuntu Container (no)
 * **`man`** Alpine (no), Ubuntu Container (minimize)
+* **`curl`** Archlinux, Centos, Fedora, python-bullseye,
+* **`wget`** Alpine, Bash, Bats, Busybox, nix, python-alpine, python-bullseye, 
+* **No `curl|wget`** Debian, Kali, python-slim, Ubuntu, Zsh
+* **ps** Debian and Fedora (no)
 ```bash
 # Alpine 
 man 1>/dev/null 2>/dev/null || apk add mandoc man-pages
