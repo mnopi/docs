@@ -238,6 +238,12 @@ Write powerful, intuitive looping one-liners in your favorite shell! Finally, lo
 
 ## DEVELOPMENT
 
+### [darling](https://github.com/darlinghq/darling.git)
+Darwin/macOS emulation layer for Linux.
+
+### [infi.recipe.application_packager](https://github.com/Infinidat/infi.recipe.application_packager.git)
+Buildout recipe for creating the platform-specific packages.
+
 ### [LTFinderButtons](https://github.com/lexrus/LTFinderButtons.git)
 
 My Finder buttons collection for macOS.
@@ -348,6 +354,9 @@ CLI tool and python library that converts the output of popular command-line
 tools and file-types to JSON or Dictionaries.
 This allows piping of output to tools like jq and simplifying automation scripts.
 [parsers](https://github.com/kellyjonbrazil/jc#parsers)
+
+### [doing](https://github.com/ttscoff/doing.git)
+A command line tool for remembering what you were doing and tracking what you've done.
 
 ### [asimov](https://github.com/stevegrunwell/asimov)
 
