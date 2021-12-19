@@ -1,5 +1,24 @@
 # GIT
 
+## Branch 
+
+### Branch: rename 
+```bash
+git checkout 'existing'
+git branch -m 'new'
+git push origin -u 'new'
+git push origin --delete 'existing'
+```
+### Branch: create and checkout 
+```bash
+git checkout -b 'new'
+git push origin -u 'new'
+```
+### Tag: delete 
+```bash
+git tag -d 'tag'
+git push --delete origin 'tag'
+```
 ## submodules
 
 ### Add
