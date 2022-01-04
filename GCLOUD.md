@@ -315,7 +315,7 @@ gcloud init
 
 ```
 ## TODO:
-- Poner las variables de mtadata en el servidor con la region pero tengo que saber la zona.
+- Poner las variables de metadata en el servidor con la region, pero tengo que saber la zona.
 - diferencia entre n1 y Share-core-machine: E2
 - `gcloud compute instances create docker --can-ip-forward`
 - `gcloud compute instances create docker --image-project=centos-cloud`
