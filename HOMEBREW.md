@@ -189,6 +189,13 @@ doppler --silent --configuration $(brew prefix)/etc/doppler.yml secrets --only-n
 doppler --silent --configuration $(brew prefix)/etc/doppler.yml secrets --raw --json
 doppler --silent --configuration $(brew prefix)/etc/doppler.yml secrets --raw --no-read-env --json
 doppler --silent --configuration $(brew prefix)/etc/doppler.yml secrets get GITHUB_WORK_TOKEN --json
+echo $(doppler secrets get SECRET_NAME --plain)
+doppler secrets get SECRET_NAME --plain
+doppler run --command='echo $SECRET_NAME'
+doppler secrets set SECRET_NAME '123'
+doppler secrets set API_KEY='123' DATABASE_URL='postgres:random@127.0.0.1:5432'
+echo -e 'multiline\nvalue' | doppler secrets set CERT
+
 doppler --silent --configuration $(brew prefix)/etc/doppler.yml secrets upload secrets.sh
 ```
 A secret `D="${C}"` cannot reference another secret `C="${A}_${B}"` which references other secrets `A="hola";B="adios"`.
