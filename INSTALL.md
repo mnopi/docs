@@ -221,6 +221,9 @@ Customize your right-click menu with Service Station.
 
 Colorizing cat. It works similar to cat but displays content with syntax highlighting.
 
+### [finicky](https://github.com/johnste/finicky)
+A macOS app for customizing which browser to start
+
 ## PIPING & FILTER
 
 ### [luneta](https://github.com/fbeline/luneta)
