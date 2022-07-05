@@ -155,21 +155,10 @@ It's powered by the fantastic [requests](https://github.com/kennethreitz/request
 
 Fast replacement for your cd command, inspired by z and autojump. It keeps track of the directories you use most frequently, and uses a ranking algorithm to navigate to the best match.
 
-### [bashmarks](https://github.com/huyng/bashmarks)
-
-Directory bookmarks for the shell.
-
 ### [goto](https://github.com/iridakos/goto)
 
 Alias and navigate to directories with tab completion in Linux.
 
-### [marker](https://github.com/pindexis/marker)
-
-Marker is a command palette for the terminal. It lets you bookmark commands (or commands templates) and easily retreive them with the help of a real-time fuzzy matcher.
-
-### [autojump](https://github.com/wting/autojump)
-
-A faster way to navigate your filesystem.
 
 ## MULTI REPO
 
